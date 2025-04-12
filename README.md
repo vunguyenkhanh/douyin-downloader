@@ -1,144 +1,144 @@
 # DouYin Downloader
 
-DouYin Downloader 是一个用于批量下载抖音内容的工具。基于抖音 API 实现，支持命令行参数或 YAML 配置文件方式运行，可满足大部分抖音内容的下载需求。
+DouYin Downloader is a tool designed for bulk downloading content from Douyin. It is built on the Douyin API and supports both command-line arguments and YAML configuration files, meeting most content downloading needs from the platform.
 
-## ✨ 特性
+## ✨ Features
 
-- **多种内容支持**
-  - 视频、图集、音乐、直播信息下载
-  - 支持个人主页、作品分享、直播、合集、音乐集合等多种链接
-  - 支持去水印下载
+- **Support for Multiple Content Types**
+  - Download of videos, photo albums, music, and livestream information
+  - Supports various types of links, including personal profiles, shared posts, livestreams, collections, and music playlists
+  - Supports watermark-free downloads
   
-- **批量下载能力**
-  - 多线程并发下载
-  - 支持多链接批量下载
-  - 自动跳过已下载内容
+- **Bulk download capability**
+  - Multi-threaded concurrent downloading
+  - Supports batch downloading from multiple links
+  - Automatically skips already downloaded content
   
-- **灵活配置**
-  - 支持命令行参数和配置文件两种方式
-  - 可自定义下载路径、线程数等
-  - 支持下载数量限制
+- **Flexible configuration**
+  - Supports both command-line arguments and configuration file modes
+  - Customizable download path, number of threads, and more
+  - Supports download quantity limits
   
-- **增量更新**
-  - 支持主页作品增量更新
-  - 支持数据持久化到数据库
-  - 可根据时间范围过滤
+- **Incremental updates**
+  - Supports incremental updates for content on personal profiles
+  - Supports data persistence to a database
+  - Supports filtering by time range
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 安装
+### Installation
 
-1. 安装 Python 依赖：
+1. Install Python dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. 复制配置文件：
+2. Copy the configuration file:
 ```bash
 cp config.example.yml config.yml
 ```
 
-### 配置
+### Configuration
 
-编辑 `config.yml` 文件，设置：
-- 下载链接
-- 保存路径
-- Cookie 信息（从浏览器开发者工具获取）
-- 其他下载选项
+Edit the `config.yml` file to set:
+- Download link
+- Save path
+- Cookie information (retrieved from the browser’s developer tools)
+- Other download options
 
-### 运行
+### Run 
 
-**方式一：使用配置文件（推荐）**
+**Method 1: Using a configuration file (recommended)**
 ```bash
 python DouYinCommand.py
 ```
 
-**方式二：使用命令行**
+**Method 2: Using the command line**
 ```bash
 python DouYinCommand.py -C True -l "抖音分享链接" -p "下载路径"
 ```
 
-## 使用交流群
+## User support group
 
 ![fuye](img/fuye.png)
 
-## 使用截图
+## Usage screenshots
 
 ![DouYinCommand1](img/DouYinCommand1.png)
 ![DouYinCommand2](img/DouYinCommand2.png)
 ![DouYinCommand download](img/DouYinCommanddownload.jpg)
 ![DouYinCommand download detail](img/DouYinCommanddownloaddetail.jpg)
 
-## 📝 支持的链接类型
+## 📝 Supported link types
 
-- 作品分享链接：`https://v.douyin.com/xxx/`
-- 个人主页：`https://www.douyin.com/user/xxx`
-- 单个视频：`https://www.douyin.com/video/xxx`
-- 图集：`https://www.douyin.com/note/xxx`
-- 合集：`https://www.douyin.com/collection/xxx`
-- 音乐原声：`https://www.douyin.com/music/xxx`
-- 直播：`https://live.douyin.com/xxx`
+- Post share link：`https://v.douyin.com/xxx/`
+- Personal profile：`https://www.douyin.com/user/xxx`
+- Single video：`https://www.douyin.com/video/xxx`
+- Photo album：`https://www.douyin.com/note/xxx`
+- Collection：`https://www.douyin.com/collection/xxx`
+- Original music：`https://www.douyin.com/music/xxx`
+- Livestream：`https://live.douyin.com/xxx`
 
-## 🛠️ 高级用法
+## 🛠️ Advanced Usage
 
-### 命令行参数
+### Command-line arguments
 
-基础参数：
+Basic parameters：
 ```
--C, --cmd            使用命令行模式
--l, --link          下载链接
--p, --path          保存路径
--t, --thread        线程数（默认5）
+-C, --cmd           Use command-line mode
+-l, --link          Download link
+-p, --path          Save path
+-t, --thread        Number of threads (default: 5)
 ```
 
 下载选项：
 ```
--m, --music         下载音乐（默认True）
--c, --cover         下载封面（默认True）
--a, --avatar        下载头像（默认True）
--j, --json          保存JSON数据（默认True）
+-m, --music         Download music (default: True)
+-c, --cover         Download cover image (default: True)
+-a, --avatar        Download avatar (default: True)
+-j, --json          Save JSON data (default: True)
 ```
 
-更多参数说明请使用 `-h` 查看帮助信息。
+For more parameter details, use `-h` to view the help information.
 
-### 示例命令
+### Example command
 
-1. 下载单个视频：
+1. Download a single video:
 ```bash
 python DouYinCommand.py -C True -l "https://v.douyin.com/xxx/"
 ```
 
-2. 下载主页作品：
+2. Download posts from a personal profile:
 ```bash
 python DouYinCommand.py -C True -l "https://v.douyin.com/xxx/" -M post
 ```
 
-3. 批量下载：
+3. Batch download:
 ```bash
-python DouYinCommand.py -C True -l "链接1" -l "链接2" -p "./downloads"
+  python DouYinCommand.py -C True -l "Link 1" -l "Link 2" -p "./downloads"
 ```
 
-更多示例请参考[使用示例文档](docs/examples.md)。
+For more examples, please refer to[Usage example documentation](docs/examples.md)。
 
-## 📋 注意事项
+## 📋 Important Notes
 
-1. 本项目仅供学习交流使用
-2. 使用前请确保已安装所需依赖
-3. Cookie 信息需要自行获取
-4. 建议适当调整线程数，避免请求过于频繁
+1. This project is for learning and educational purposes only.
+2. Please ensure all required dependencies are installed before use.
+3. Cookie information must be obtained manually.
+4. It is recommended to adjust the number of threads appropriately to avoid sending requests too frequently.
 
-## 🤝 贡献
+## 🤝 Contributing
 
-欢迎提交 Issue 和 Pull Request。
+Feel free to submit Issues and Pull Requests.
 
-## 📜 许可证
+## 📜 License
 
-本项目采用 [MIT](LICENSE) 许可证。
+This project is licensed under the [MIT](LICENSE) License。
 
-## 🙏 鸣谢
+## 🙏 Acknowledgments
 
 - [TikTokDownload](https://github.com/Johnserf-Seed/TikTokDownload)
-- 本项目使用了 ChatGPT 辅助开发，如有问题请提 Issue
+- This project was developed with the assistance of ChatGPT. If you encounter any issues, please submit an Issue.
 
 ## 📊 Star History
 

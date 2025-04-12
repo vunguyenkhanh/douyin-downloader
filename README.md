@@ -55,7 +55,7 @@ python DouYinCommand.py
 
 **Method 2: Using the command line**
 ```bash
-python DouYinCommand.py -C True -l "抖音分享链接" -p "下载路径"
+python DouYinCommand.py -C True -l "Douyin share link" -p "Download path"
 ```
 
 ## User support group
